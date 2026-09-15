@@ -1,0 +1,24 @@
+# ETRI Lifelog 2026 — sleep prediction (team SML). Library versions (tested).
+# OS:     Ubuntu 24.04.4 LTS (Linux 6.14, x86_64)
+# Python: 3.10 - 3.13 (verified on 3.10.20 and 3.13.13). Not 3.14 -- numpy 2.2.6 and scipy 1.15.3
+#         have no cp314 wheels, so pip attempts a source build and scipy fails without a Fortran
+#         compiler. Pin the interpreter yourself; see README.md for the Windows commands.
+# CUDA:   12.8 (GPU used only by `python run.py --from-raw`; the score-restoration path does not use it)
+#
+# Install:  pip install -r requirements.txt
+# The exact environment used for the byte-identical check: requirements-lock.txt
+#
+# --- Core: required for the score-restoration path `python run.py` (views/fuse.py) ---
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+scikit-learn==1.7.2
+lightgbm==4.6.0
+sktime==0.40.1            # MiniRocketMultivariate (random-kernel encoder; no pretrained weights)
+pyarrow==25.0.1           # parquet I/O for pandas
+joblib==1.5.3             # sklearn/loky backend; 1.5+ counts Windows cores without the removed wmic
+#
+# --- GPU (OPTIONAL): only to re-train the pyramid CNN via `python run.py --from-raw`.
+#     `python run.py` does not import torch. Trained with torch 2.12.0.dev20260407+cu128 (CUDA 12.8);
+#     any stable torch>=2.1 gives an equivalent CNN draw.  Install with:  pip install "torch>=2.1"
+# torch>=2.1

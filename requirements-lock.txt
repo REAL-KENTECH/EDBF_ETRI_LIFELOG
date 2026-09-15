@@ -1,0 +1,18 @@
+# Exact environment in which `python run.py` was verified to write ch2026_submission.csv
+# with md5 3b0f2da7e84e7a390e3703e72ae4a0b3 (Python 3.13.13, pip install -r requirements-lock.txt).
+# Transitive dependencies included. Use requirements.txt for a normal install.
+joblib==1.5.3
+lightgbm==4.6.0
+numpy==2.2.6
+packaging==26.3
+pandas==2.3.3
+pyarrow==25.0.1
+python-dateutil==2.9.0.post0
+pytz==2026.3.post1
+scikit-base==0.13.2
+scikit-learn==1.7.2
+scipy==1.15.3
+six==1.17.0
+sktime==0.40.1
+threadpoolctl==3.6.0
+tzdata==2026.3
